@@ -1,0 +1,73 @@
+############################
+# Python / Virtual Envs
+############################
+
+# Any virtual environment anywhere
+env/
+.venv/
+**/env/
+**/.venv/
+
+# Python cache anywhere
+__pycache__/
+**/__pycache__/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+############################
+# Environment files
+############################
+
+# .env files anywhere
+.env
+**/.env
+
+############################
+# Jupyter / logs
+############################
+
+*.ipynb
+.ipynb_checkpoints/
+*.log
+
+############################
+# Vector DB / runtime data
+############################
+
+# Chroma
+chroma_data/
+**/chroma_data/
+
+# Qdrant
+qdrant_data/
+**/qdrant_data/
+
+# Generated outputs
+brain_output.json
+
+############################
+# Large documents / datasets
+############################
+
+history(claude_AI)/
+reference document/
+other reference document/
+extra document(not used)/
+guidelines/
+
+############################
+# OS / tooling
+############################
+
+.DS_Store
+.vscode/
+.idea/
+
+############################
+# Docker artifacts
+############################
+
+*.tar

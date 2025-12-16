@@ -1,0 +1,15 @@
+# Requirements for doc_retrieverRAG.ipynb
+# Compatible with Python 3.11, 3.12, 3.13, 3.14
+
+# Core dependencies
+crewai
+pandas
+pydantic
+requests
+chromadb
+
+# Jupyter and kernel
+ipykernel
+jupyter
+python-dotenv
+openpyxl
