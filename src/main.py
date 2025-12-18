@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any
-
+from gmp_dev_generator import deviation_generation
 from brainstorming import brain
 from  add_content import add_data
 
@@ -16,6 +16,9 @@ class BrainstormingRequest(BaseModel):
 
 
 class AddDataRequest(BaseModel):
+    data: Dict[str, Any]
+
+class GMPResponse(BaseModel):
     data: Dict[str, Any]
 
 @app.get("/")
@@ -50,7 +53,19 @@ def ingest_deviation(request: AddDataRequest):
             status_code=500,
             detail=str(e)
         )
-
+@app.post("/gmpgeneration")
+def generate_gmp_deviation(request: GMPResponse):
+    try:
+        result = deviation_generation(request.data)
+        return {
+            "status": "success",
+            "result": result
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
 
 if __name__ == "__main__":
     import uvicorn

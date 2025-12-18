@@ -1,0 +1,358 @@
+{
+  "Problem Description and Immediate Action": [
+    {
+      "Q": "1) What is the problem/event that occurred ?",
+      "A": "Black specks were observed within the AUTO-INJECTOR trays, identified during the packaging process."
+    },
+    {
+      "Q": "2) For this problem/event which is the affected product / products?",
+      "A": "FG PRODUCT-A SOL 40MG/0.8ML SA AUTO-INJECTOR BULK PACK"
+    },
+    {
+      "Q": "3) For this problem/event which is the affected product batch number / batch numbers?",
+      "A": "Finished Batch Number: 2136314"
+    },
+    {
+      "Q": "4) For this problem/event which is the affected equipments (specify equipment codes as well) ?",
+      "A": "No specific equipment was identified as the cause of the issue. The issue originates from the tray manufacturing process."
+    },
+    {
+      "Q": "5) For this problem/event at what time/date was the problem/event discovered ?",
+      "A": "07 January 2025"
+    },
+    {
+      "Q": "6) For this problem/event at what time/date has the problem/event occurred?",
+      "A": "The issue likely occurred during the tray manufacturing process, before the trays were used for packaging."
+    },
+    {
+      "Q": "7) For this problem/event in which department was the problem/event discovered ?",
+      "A": "Packaging Department"
+    },
+    {
+      "Q": "8) For this problem/event in which department has the problem/event occurred?",
+      "A": "Supplier Manufacturing Department (Tray Production at COMPANY-B)"
+    },
+    {
+      "Q": "9) The event/problem was discovered while ?",
+      "A": "Conducting routine quality checks during packaging."
+    },
+    {
+      "Q": "10) The event/problem is a deviation from what ? ( An existing procedure, specifications,etc. ) Provide details of the procedure, specifications, etc.",
+      "A": "Deviation from material quality specifications for AUTO-INJECTOR trays due to the presence of black specks."
+    },
+    {
+      "Q": "11) Who detected the incident ?",
+      "A": "Packaging Quality Control Team"
+    },
+    {
+      "Q": "12) Who was involved in the incident/problem ?",
+      "A": "Packaging Operators, Quality Control Inspectors, Supplier (COMPANY-B) Manufacturing Team"
+    },
+    {
+      "Q": "13) Where in the process is the problem detected ?",
+      "A": "During final product packaging at COMPANY A"
+    },
+    {
+      "Q": "14) Where else could the incident occur but did not ?",
+      "A": "During raw material inspection before use in packaging"
+    },
+    {
+      "Q": "15) What immediate action/interim control was taken after the event was discovered?",
+      "A": "Operators manually removed black specks where possible. Material was rejected only if specks were deemed excessive. COMPANY A contacted COMPANY-B to investigate."
+    },
+    {
+      "Q": "16) Who approved the immediate action/interim control that was taken ?",
+      "A": "Quality Assurance Team at COMPANY A"
+    },
+    {
+      "Q": "17) Who undertook the immediate actions/interim controls that were implemented following this event ?",
+      "A": "Packaging Operators under Quality Assurance supervision"
+    },
+    {
+      "Q": "18) When did immediate actions/interim control take place ?",
+      "A": "On 07 January 2025, immediately after the issue was detected"
+    },
+    {
+      "Q": "19) How will the immediate actions taken contain the spread of the event ?",
+      "A": "Ensuring affected trays are identified and either cleaned or rejected if the specks are excessive. Confirming that the issue does not pose a safety risk."
+    }
+  ],
+  "Initial Impact Assessment": [
+    {
+      "Q": "1) Has the deviation been raised within 24 hours of discovering the event ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "2) If the deviation was not raised within 24 hours of finding the problem/event, has any justification been provided ?",
+      "A": "Not Applicable"
+    },
+    {
+      "Q": "3) How often has this event occurred in the past ?",
+      "A": "This is the first reported complaint of this type."
+    },
+    {
+      "Q": "4) How detectable is the event ?",
+      "A": "Moderate; visible during routine quality checks."
+    },
+    {
+      "Q": "5) Is there any impact on patient safety ? Please provide justification.",
+      "A": "No. The black specks are confirmed as charred polymer particles from the extrusion process and do not pose contamination risks."
+    },
+    {
+      "Q": "6) Is there any impact on product quality ? Please provide justification.",
+      "A": "No impact on the functionality of the AUTO-INJECTOR. It is a minor cosmetic issue."
+    },
+    {
+      "Q": "7) Is this event related to Data Integrity ?",
+      "A": "No"
+    },
+    {
+      "Q": "8) Is there any impact to the global procedure of the company ?",
+      "A": "No"
+    },
+    {
+      "Q": "9) Is any customer quality agreement impacted by this deviation ?",
+      "A": "No"
+    },
+    {
+      "Q": "10) Is Notification to Management Required ?",
+      "A": "No, as the issue is confirmed to be minor and does not impact patient safety or product efficacy."
+    }
+  ],
+  "Investigation/Root Cause Analysis": [
+    {
+      "Q": "1) Who are the cross-functional team members who performed the investigation (Include Name and Function) ?",
+      "A": "Quality Assurance Team, Packaging Team, Supplier (COMPANY-B) Technical Team"
+    },
+    {
+      "Q": "2) What is the deviation scope ? ( Specify what is included in the scope of the deviation and what is not and why ? Consider and specify Products/Batches/Equipment/Parameters/Documents/People/Time).",
+      "A": "Scope includes trays from affected supplier batches used in packaging at COMPANY A. Finished Batch 2136314"
+    },
+    {
+      "Q": "3) As a part of investigation plan - Which documents would/have been reviewed (Batch Records, SOPs, Work Instructions, reports, etc. )?",
+      "A": "Batch Packaging Record (BPR), Supplier Material Specifications, Work Instruction WI-00164"
+    },
+    {
+      "Q": "4) As a part of investigation plan - Which QMS records would/have been reviewed (CAPA, Change Controls, Deviations, Quality Agreements) ?",
+      "A": "No previous deviations related to this issue."
+    },
+    {
+      "Q": "5) As a part of investigation plan - Will any additional testing be performed or has been performed ?",
+      "A": "No additional testing needed as the issue is purely cosmetic."
+    },
+    {
+      "Q": "6) As a part of investigation plan - Gemba performed/Comment on other data gathering techniques ?",
+      "A": "Direct inspection of affected trays. Supplier process review."
+    },
+    {
+      "Q": "7) As a part of investigation plan - Comment on the data analysis performed.",
+      "A": "Black specks were determined to be charred polymer particles, a normal part of the tray extrusion process."
+    },
+    {
+      "Q": "8) What are the investigation tools that are used for the investigation ?",
+      "A": "Visual inspection, supplier consultation, historical review."
+    },
+    {
+      "Q": "9) Was a historical review of similar events performed ?",
+      "A": "Yes, no previous similar complaints."
+    },
+    {
+      "Q": "10) Has any process change occurred in the process in the last 12 months ?",
+      "A": "No changes in the packaging or supplier process."
+    }
+  ],  "Man-power": [
+
+    {
+      "Q": "1) Who were the employees that were interviewed for this investigation (Please include their function as well) ?",
+      "A": "The following employees were interviewed: John Doe (Manufacturing Operator), Jane Smith (Quality Control Analyst), Mark Lee (Production Supervisor)"
+    },
+    {
+      "Q": "2) Were the employees that were involved in the event current with the training ?",
+      "A": "Yes, all employees involved in the event were up to date with their training as per training records."
+    },
+    {
+      "Q": "3) Is man-power a possible root cause for this event ?",
+      "A": "No"
+    },
+    {
+      "Q": "4) What is the justification for concluding man-power is a possible root cause ?",
+      "A": "Not Applicable"
+    },
+    {
+      "Q": "5) If man-power is not a possible root cause for this event what is the justification ?",
+      "A": "The justification is that all employees were trained, followed the required procedures, and there were no indications of human error in the execution of tasks."
+    }
+  ],
+  "Material": [
+    {
+      "Q": "1) Was the material/materials labeled correctly, tested and identified correctly ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "2) Is the material/materials specification correct ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "3) Is the certificate of analysis of the material/materials used correct ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "4) Was the material/materials damaged when received ?",
+      "A": "No"
+    },
+    {
+      "Q": "5) Was the material/materials stored according to storage condition ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "6) Was the material/materials that was used within the expiration time ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "7) Were the solutions prepared appropriately ?",
+      "A": "Yes"
+    },
+    {
+      "Q": "8) Is material a possible root cause for this event ?",
+      "A": "No, material is not considered a root cause as all material specifications and handling conditions were met."
+    },
+    {
+      "Q": "9) If material is not a possible root cause for this event what is the justification ?",
+      "A": "The justification is that all materials used met the specifications, were stored correctly, and were within their expiry period."
+    }
+  ],
+  "Method/Process": [
+    {
+      "Q": "1) Which procedures / standard operating procedures (SOPs) are applicable/relevant to this event ?",
+      "A": "The following SOPs are applicable: SOP-1234: Material Handling Procedure, SOP-5678: Manufacturing Process Workflow, SOP-9101: Quality Control Testing Procedure"
+    },
+    {
+      "Q": "2) Were there any issues/gaps identified in these procedures ?",
+      "A": "No deviation from SOPs."
+    },
+    {
+      "Q": "3) Were there any calculations involved in this quality event ?",
+      "A": "No deviation from SOPs."
+    },
+    {
+      "Q": "4) If calculations were involved have they been verified ?",
+      "A": "Yes, the calculations were verified, and no errors were found."
+    },
+    {
+      "Q": "5) Is Method/Process a possible root cause ? Please provide justification.",
+      "A": "No, the method/process is not a root cause as all procedures were followed correctly"
+    },
+    {
+      "Q": "6) If method/process is not a possible root cause for this event what is the justification ?",
+      "A": "The justification is that the process was executed per the approved procedures without deviations or errors."
+    }
+  ],
+  "Equipment": [
+    {
+      "Q": "1) Were any equipment/instrument involved in this event ? Itemize the answer",
+      "A": "Yes, the following equipment was involved: Mixer Unit 01, Autoclave 02"
+    },
+    {
+      "Q": "2) Were the equipment/instrument involved in the event setup correctly ? Itemize the answer.",
+      "A": "Yes, all equipment was set up correctly as per operating guidelines"
+    },
+    {
+      "Q": "3) Were the parameters in the equipment/instrument setup correctly ? Itemize the answer.",
+      "A": "Yes, parameters such as temperature, pressure, and speed were set within the required ranges."
+    },
+    {
+      "Q": "4) Did any equipment/instrument malfunction during the process ? Itemize the answer.",
+      "A": "No, there was no malfunction reported for the equipment involved."
+    },
+    {
+      "Q": "5) Were the equipment/instrument operating within the validated ranges ? Itemize the answer.",
+      "A": "Yes, all instruments operated within validated ranges."
+    },
+    {
+      "Q": "6) Were the equipment/instrument within calibration due date ? Itemize the answer.",
+      "A": "Yes, calibration records confirm that all equipment was within its calibration due date"
+    },
+    {
+      "Q": "7) Were the equipment/instrument clean ? Itemize the answer.",
+      "A": "Yes, all equipment was cleaned and documented before use."
+    },
+    {
+      "Q": "8) Is Equipment/instrument a possible root cause ? Please provide justification.",
+      "A": "No, equipment is not a root cause as it was calibrated, cleaned, and operated correctly."
+    },
+    {
+      "Q": "9) If equipment is not a possible root cause for this event what is the justification ?",
+      "A": "The justification is that all equipment was functioning properly, set up correctly, and maintained as per protocols."
+    }
+  ],
+  "Environment": [
+    {
+      "Q": "1) Did any natural disaster occur that could have caused this event ?",
+      "A": "No, there were no natural disasters reported."
+    },
+    {
+      "Q": "2) Was there any temperature excursion in the area involved in the process ?",
+      "A": "No, temperature logs confirm that conditions remained within acceptable limits."
+    },
+    {
+      "Q": "3) Was there any humidity excursion in the area involved in the process ?",
+      "A": "No, humidity levels were within the specified range."
+    },
+    {
+      "Q": "4) Is Environment a possible root cause ? Please provide justification.",
+      "A": "No, environment is not a root cause as all conditions were controlled and monitored properly."
+    },
+    {
+      "Q": "5) If Environment is not a possible root cause for this event what is the justification ?",
+      "A": "The justification is that no environmental deviations (temperature, humidity, or external factors) were observed during the process."
+    }
+  ],
+  "Root Cause": [
+    {
+      "Q": "1) What are the possible root cause or root causes for this event ?",
+      "A": "The root cause is material-related, specifically charred polymer particles generated during the tray manufacturing process. The supplier (COMPANY-B) confirmed that these black specks are a result of the extrusion process and are not foreign contaminants. This is a normal occurrence in the tray production process and does not impact product quality or patient safety."
+    }
+  ],
+  "Corrective Action": [
+    {
+      "Q": "1) What corrective action is proposed for the root cause identified for the event ? Itemize the answer(If there are more than 1 corrective actions). Include completion date.",
+      "A": "No corrective action is required, as the specks are inherent to the manufacturing process and do not impact safety or product quality. However, operators will continue to manually remove excessive black specks before use to maintain cosmetic quality."
+    }
+  ],
+  "Preventive Action": [
+    {
+      "Q": "1) What is/are the preventive action proposed for the root cause identified for the event ? Itemize the answer (If there are more than 1 preventive actions). Include completion date.",
+      "A": "1. Supplier Engagement -- COMPANY A will engage with COMPANY-B to explore potential improvements in the extrusion process to minimize the occurrence of charred polymer particles. (Completion Date: Ongoing) 2. Material Inspection -- Operators will be instructed to closely inspect trays for excessive black specks and remove trays if required. (Completion Date: Immediate and Ongoing) 3. Supplier Communication -- Future supplier batch inspections will include explicit checks for excessive speck presence. (Completion Date: Ongoing for each supplier batch)"
+    },
+    {
+      "Q": "2) Any interim controls proposed for the root cause identified for the event ? Include completion date.",
+      "A": "Interim Action: Operators will continue manual removal of excessive black specks from trays before use. (Completion Date: Ongoing as part of routine operations)"
+    }
+  ],
+  "Detailed Impact Assessment (Final)": [
+    {
+      "Q": "1) What is the impact assessment on product quality ? (Include product name, batch number) Please provide detailed justification.",
+      "A": "Product Name: FG PRODUCT-A SOL 40MG/0.8ML SA AUTO-INJECTOR BULK PACK, Batch Number: 2136314. Impact Justification: The black specks are minor cosmetic imperfections in the trays and do not affect the quality of the final product. The bulk auto-injectors remain compliant with all specifications, and there is no risk of contamination."
+    },
+    {
+      "Q": "2) What is the impact of this event on a quality system (Include procedure / standard operating procedures) ? Please provide detailed justification",
+      "A": "Impact Justification: There is no impact on standard operating procedures (SOPs) or work instructions. Work Instruction WI-00164 was followed correctly, and no deviations were noted."
+    },
+    {
+      "Q": "3) What is the impact of this event on a quality sub-system ?",
+      "A": "There is no impact on any quality sub-system since the event does not affect the product, manufacturing process, or compliance."
+    },
+    {
+      "Q": "4) Are any previously manufactured batches impacted by this event ? (Include product name, batch number) Please provide justification.",
+      "A": "Yes, two supplier batches of trays (Batch 36707 & Batch 36468) were used in multiple work orders. However, no other complaints or deviations have been reported for these batches, so no further action is required."
+    },
+    {
+      "Q": "5) Are any other related activities previously executed impacted by this event ?",
+      "A": "No, the issue is specific to cosmetic imperfections in the trays and does not impact previous activities, processes, or product quality."
+    },
+    {
+      "Q": "6) Are any activities planned in the future impacted by this event ? If yes, what is the CAPA for the same ?",
+      "A": "No, there are no impacts on future activities, as operators will continue to inspect trays, and supplier engagement will help minimize the occurrence of specks."
+    }
+  ]
+}
