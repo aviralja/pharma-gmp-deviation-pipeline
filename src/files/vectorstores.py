@@ -4,7 +4,21 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 import chromadb
 from chromadb.config import Settings
+from pymongo import MongoClient
+from typing import List, Dict
+import numpy as np
 
+
+from files.embedding import SentenceTransformerEmbedder
+import os
+from dotenv import load_dotenv
+load_dotenv()
+  # reads .env file
+
+MONGO_URI = os.getenv("MONGO_URI")
+MONGO_DB = os.getenv("MONGO_DB")
+MONGO_COLLECTION = os.getenv("MONGO_COLLECTION")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 
 class VectorStore(ABC):
 
@@ -71,3 +85,46 @@ class ChromaStore(VectorStore):
             query_texts=[text],
             n_results=top_k
         )
+    
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+
+class MongoVectorStore(VectorStore):
+    def __init__(
+        self
+    ):
+        self.client = MongoClient(MONGO_URI)
+        self.collection = self.client[MONGO_DB][MONGO_COLLECTION]
+        self.embedder = SentenceTransformerEmbedder()
+
+    def add(self, texts: List[str], metadatas: List[Dict], ids: List[str]):
+        embeddings = self.embedder.embed(texts)
+
+        docs = []
+        for i in range(len(texts)):
+            docs.append({
+                "_id": ids[i],
+                "text": texts[i],
+                "embedding": embeddings[i],
+                "metadata": metadatas[i]
+            })
+
+        self.collection.insert_many(docs)
+
+    def query(self, text: str, top_k: int = 5):
+        query_vector = self.embedder.embed([text])[0]
+
+        results = []
+        for doc in self.collection.find():
+            score = cosine_similarity(query_vector, doc["embedding"])
+            results.append({
+                "id": doc["_id"],
+                "text": doc["text"],
+                "metadata": doc["metadata"],
+                "score": score
+            })
+
+        results.sort(key=lambda x: x["score"], reverse=True)
+        return results[:top_k]
+

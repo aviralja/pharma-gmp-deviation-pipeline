@@ -3,15 +3,15 @@ class DeviationRepository:
     def __init__(self, vector_store: VectorStore):
         self.store = vector_store
 
-    def save_answers(self, summary_id, questions, answers):
+    def save_answers(self, summary_id, answers):
         texts, metas, ids = [], [], []
 
-        for i, (q, a) in enumerate(zip(questions, answers), 1):
+        for i, a in enumerate(answers, 1):
             ids.append(f"{summary_id}_{i}")
             texts.append(a)
             metas.append({
                 "summary_id": summary_id,
-                "question": q["question"]
+                "answer":a
             })
 
         self.store.add(texts, metas, ids)
@@ -20,12 +20,12 @@ class DeviationSimilarityService:
     def __init__(self, vector_store: VectorStore):
         self.store = vector_store
 
-    def find_similar(self, answers, questions, top_k=3):
+    def find_similar(self, answers, top_k=3):
         results = []
-        for q, a in zip(questions, answers):
+        for a in  answers:
             hits = self.store.query(a, top_k)
             results.append({
-                "question": q,
+                "answer": a,
                 "matches": hits
             })
         return results
