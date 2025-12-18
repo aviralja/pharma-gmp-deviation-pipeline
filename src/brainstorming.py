@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 #! brainstorming function
 load_dotenv()
 def brain(input_data: dict):
-    summary=summary_qa(input_data) 
+    summary=summary_qa(input_data['Problem Description and Immediate Action']) 
     prompts=load_active_prompts("../prompts/Prompts Output 2 1.xlsx") 
     questions_list=import_data('../information/sepQues.json') 
     answers=process_description(summary,llm) 
