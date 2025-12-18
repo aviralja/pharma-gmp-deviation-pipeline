@@ -2,21 +2,29 @@
 ### * importing * ###
 import os
 import json
+from pathlib import Path
 from files.helperfunc import import_data, load_active_prompts, processing_content
 from files.agents import llm, summarizerAgent, instructionAnsweringAgent
 from files.brainstorminghelper import summary_qa
-from files.vectorstores import QdrantStore,ChromaStore
+from files.vectorstores import QdrantStore, ChromaStore
 from files.deviation_store import DeviationSimilarityService
 from files.redis_repo import DeviationRedisRepository
 from dotenv import load_dotenv
+
+# Get project root directory
+PROJECT_ROOT = Path(__file__).parent.parent
+PROMPTS_DIR = PROJECT_ROOT / "prompts"
+INFO_DIR = PROJECT_ROOT / "information"
+
 #! brainstorming function
 load_dotenv()
 def brain(input_data: dict):
     summary=summary_qa(input_data) 
-    prompts=load_active_prompts("../prompts/Prompts Output 2 1.xlsx") 
-    questions_list=import_data('../information/sepQues.json') 
+    prompts=load_active_prompts(str(PROMPTS_DIR / "Prompts Output 2 1.xlsx")) 
+    questions_list=import_data(str(INFO_DIR / 'sepQues.json')) 
     answers=processing_content(questions_list,summary,llm) 
-    vector_store = ChromaStore(collection_name="deviations")
+    # ChromaDB Cloud - credentials from environment variables
+    vector_store = ChromaStore(collection_name="deviations", use_cloud=True)
     similarity_service = DeviationSimilarityService(vector_store)
     similar_results = similarity_service.find_similar(
                                                     answers=answers,
@@ -30,9 +38,10 @@ def brain(input_data: dict):
             similar_ids.add(i)
     similarfile = list(similar_ids)
     redis_repo = DeviationRedisRepository(
-        host=os.getenv("REDIS_HOST"),
+        host=os.getenv("REDIS_HOST", "localhost"),
         port=int(os.getenv("REDIS_PORT", 6379)),
-        db=int(os.getenv("REDIS_DB", 0))
+        db=int(os.getenv("REDIS_DB", 0)),
+        password=os.getenv("REDIS_PASSWORD")  # None for local, required for cloud
     )
     rootcause_content = "Previous similar root causes for brainstorming:\n"
     for deviation_id in similarfile:

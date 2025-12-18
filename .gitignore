@@ -4,6 +4,7 @@
 
 # Any virtual environment anywhere
 env/
+venv/
 .venv/
 **/env/
 **/.venv/

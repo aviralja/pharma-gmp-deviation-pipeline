@@ -12,14 +12,13 @@ instructor==1.13.0
 
 # --- Vector DB ---
 chromadb==1.1.1
-qdrant-client==1.16.2
-numpy==2.3.5
+numpy==2.2.6
 
 # --- Redis ---
 redis==7.1.0
 
 # --- Data / Files ---
-pandas==2.3.3
+pandas==2.2.3
 openpyxl==3.1.5
 PyYAML==6.0.3
 
