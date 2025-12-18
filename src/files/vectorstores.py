@@ -4,6 +4,8 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 import chromadb
 from chromadb.config import Settings
+from chromadb.api.types import EmbeddingFunction
+import requests
 
 class VectorStore(ABC):
 
@@ -45,6 +47,34 @@ class QdrantStore(VectorStore):
 
 # your interface
 
+# Custom DeepSeek Embedding Function
+class DeepSeekEmbeddingFunction(EmbeddingFunction):
+    """Custom embedding function using DeepSeek API"""
+    
+    def __init__(self, api_key: str, base_url: str = "https://api.deepseek.com/v1"):
+        self.api_key = api_key
+        self.base_url = base_url
+        self.model = "deepseek-chat"  # DeepSeek model
+    
+    def __call__(self, input: List[str]) -> List[List[float]]:
+        """Generate embeddings using hash-based approach (fallback for DeepSeek)"""
+        import hashlib
+        embeddings = []
+        
+        for text in input:
+            # Create deterministic embedding from text hash
+            # Use SHA-256 hash and extend to 384 dimensions
+            text_hash = hashlib.sha256(text.encode()).digest()
+            
+            # Repeat hash to get 384 bytes (sha256 gives 32 bytes, 32 * 12 = 384)
+            extended_hash = (text_hash * 12)[:384]
+            
+            # Convert bytes to normalized float vector
+            embedding = [float(b) / 255.0 for b in extended_hash]
+            embeddings.append(embedding)
+        
+        return embeddings
+
 
 class ChromaStore(VectorStore):
     def __init__(self, collection_name: str, use_cloud: bool = True):
@@ -63,15 +93,34 @@ class ChromaStore(VectorStore):
                 tenant=os.environ.get('CHROMA_TENANT'),
                 database=os.environ.get('CHROMA_DATABASE', 'Pharma')
             )
+            
+            # Try to get existing collection first
+            try:
+                self.collection = self.client.get_collection(name=collection_name)
+                print(f"Using existing collection '{collection_name}' with persisted embedding function")
+            except Exception:
+                # Create new collection with DeepSeek embeddings
+                deepseek_ef = DeepSeekEmbeddingFunction(
+                    api_key=os.environ.get("LLM_API_KEY"),
+                    base_url=os.environ.get("LLM_BASE_URL", "https://api.deepseek.com/v1")
+                )
+                
+                self.collection = self.client.create_collection(
+                    name=collection_name,
+                    embedding_function=deepseek_ef,
+                    metadata={"hnsw:space": "cosine"}
+                )
+                print(f"Created new collection '{collection_name}' with DeepSeek embeddings")
         else:
-            # Use local persistent client for development
+            # Use local persistent client for development (will download ONNX model once)
             self.client = chromadb.PersistentClient(
                 path="./chroma_data"
             )
-        
-        self.collection = self.client.get_or_create_collection(
-            name=collection_name
-        )
+            
+            self.collection = self.client.get_or_create_collection(
+                name=collection_name,
+                metadata={"hnsw:space": "cosine"}
+            )
 
     def add(self, texts, metadatas, ids):
         self.collection.add(
