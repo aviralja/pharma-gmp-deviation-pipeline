@@ -1,4 +1,4 @@
-from files.vectorstores import QdrantStore,VectorStore
+from files.vectorstores import VectorStore
 class DeviationRepository:
     def __init__(self, vector_store: VectorStore):
         self.store = vector_store

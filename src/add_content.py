@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from files.vectorstores import QdrantStore, ChromaStore, MongoVectorStore
+from files.vectorstores import  MongoVectorStore
 from files.deviation_store import DeviationRepository
 from files.redis_repo import DeviationRedisRepository, DeviationUpstashRedisRepository
 from files.helperfunc import import_data

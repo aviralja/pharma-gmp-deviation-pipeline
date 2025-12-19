@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 def deviation_generation(input_data: dict):
 
-    prompts=load_active_prompts("../prompts/Prompts Output 1 1.xlsx") 
+    prompts=load_active_prompts("prompts/Prompts Output 1 1.xlsx") 
     print("!")
     summary={}
     for key, value in input_data.items():
