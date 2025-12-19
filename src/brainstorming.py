@@ -76,7 +76,7 @@ def brain(input_data: dict):
             )
 
         query = f"""
-        You are tasked with providing a complete and accurate answer to a user's question by strictly following their specific instructions.
+        You are tasked with providing a complete and accurate answer to a user's question by strictly following their specific instructions. content should be in markdown format(compulsory) and strictly as writen
 
         ---
 
@@ -117,3 +117,4 @@ def save_ans_to_json(ans, filename="brain_output.json"):
 if __name__ == "__main__":
     ans = brain("../reference document/second(complete set)/question-answer2.json")
     save_ans_to_json(ans)
+
