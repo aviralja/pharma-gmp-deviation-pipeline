@@ -7,11 +7,18 @@ load_dotenv()
 
 #! currently using deepseekllm, later can switch to gpu deployed private llm
 
-llm = CustomLLM(
-    model=os.getenv("LLM_MODEL"),
-    base_url=os.getenv("LLM_BASE_URL"),
-    api_key=os.getenv("LLM_API_KEY"),
-    temperature=float(os.getenv("LLM_TEMPERATURE", 0.7))
+# llm = CustomLLM(
+#     model=os.getenv("LLM_MODEL"),
+#     base_url=os.getenv("LLM_BASE_URL"),
+#     api_key=os.getenv("LLM_API_KEY"),
+#     temperature=float(os.getenv("LLM_TEMPERATURE", 0.7))
+# )
+#! for openai gpt-4
+llm = LLM(
+    model="openai/gpt-4o",
+    api_key=os.getenv("OPENAI_API_KEY"),  # Or set OPENAI_API_KEY
+    temperature=0.7,
+    max_tokens=4000
 )
 #! summarizwe agent for generating summary
 summarizerAgent = Agent(
