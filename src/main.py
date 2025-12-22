@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict, Any
 from gmp_dev_generator import deviation_generation
@@ -10,6 +11,14 @@ app = FastAPI(
     title="GMP Deviation Brainstorming API",
     description="API for GMP deviation ingestion and expert brainstorming",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080", "https://report-companion.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class BrainstormingRequest(BaseModel):

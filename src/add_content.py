@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from files.vectorstores import QdrantStore, ChromaStore, MongoVectorStore
+from files.vectorstores import  MongoVectorStore
 from files.deviation_store import DeviationRepository
 from files.redis_repo import DeviationRedisRepository, DeviationUpstashRedisRepository
 from files.helperfunc import import_data
@@ -23,7 +23,8 @@ def add_data(data: dict):
     description= data["Description"]
     print("%"  )
     root_cause= data["Root Cause"]
-    answers=process_description(description,llm)  
+    answer=process_description(description,llm)  
+    answers=[answer]
     print("4")
     dev_store.save_answers(deviation_id, answers)
     redis_repo.save_deviation(

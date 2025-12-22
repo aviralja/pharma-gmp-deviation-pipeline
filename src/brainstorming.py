@@ -5,7 +5,7 @@ import json
 from files.helperfunc import import_data, load_active_prompts, processing_content,process_description
 from files.agents import llm, summarizerAgent, instructionAnsweringAgent
 from files.brainstorminghelper import summary_qa
-from files.vectorstores import QdrantStore,ChromaStore, MongoVectorStore
+from files.vectorstores import  MongoVectorStore
 from files.deviation_store import DeviationSimilarityService
 from files.redis_repo import DeviationRedisRepository, DeviationUpstashRedisRepository
 from dotenv import load_dotenv
@@ -13,9 +13,9 @@ from dotenv import load_dotenv
 load_dotenv()
 def brain(input_data: dict):
     summary=summary_qa(input_data['Problem Description and Immediate Action']) 
-    prompts=load_active_prompts("../prompts/Prompts Output 2 1.xlsx") 
-    questions_list=import_data('../information/sepQues.json') 
-    answers=process_description(summary,llm) 
+    prompts=load_active_prompts("prompts/Prompts Output 2 1.xlsx") 
+    answer=process_description(summary,llm)
+    answers=[answer]
     vector_store = MongoVectorStore()
     similarity_service = DeviationSimilarityService(vector_store)
     similar_results = similarity_service.find_similar(
