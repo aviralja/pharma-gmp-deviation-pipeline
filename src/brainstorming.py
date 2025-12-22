@@ -14,7 +14,8 @@ load_dotenv()
 def brain(input_data: dict):
     summary=summary_qa(input_data['Problem Description and Immediate Action']) 
     prompts=load_active_prompts("prompts/Prompts Output 2 1.xlsx") 
-    answers=process_description(summary,llm) 
+    answer=process_description(summary,llm)
+    answers=[answer]
     vector_store = MongoVectorStore()
     similarity_service = DeviationSimilarityService(vector_store)
     similar_results = similarity_service.find_similar(

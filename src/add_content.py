@@ -23,7 +23,8 @@ def add_data(data: dict):
     description= data["Description"]
     print("%"  )
     root_cause= data["Root Cause"]
-    answers=process_description(description,llm)  
+    answer=process_description(description,llm)  
+    answers=[answer]
     print("4")
     dev_store.save_answers(deviation_id, answers)
     redis_repo.save_deviation(
