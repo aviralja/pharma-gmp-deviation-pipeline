@@ -1,4 +1,5 @@
-from files.agents import summarizerAgent
+
+from files.agents import llm
 #! executive-level GMP deviation summary from QA
 def summary_qa(input_data) -> str:
     query = f"""Take a set of raw Q/A pairs from a GMP deviation report section and generate 
@@ -11,5 +12,5 @@ def summary_qa(input_data) -> str:
     Here are the Q/A pairs:
     Q/A: {input_data}
     """
-    result = summarizerAgent.kickoff(query)
-    return result.raw
+    result = llm.call(query)
+    return result

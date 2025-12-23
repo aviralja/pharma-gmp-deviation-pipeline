@@ -76,7 +76,7 @@ def brain(input_data: dict):
             )
 
         query = f"""
-        You are tasked with providing a complete and accurate answer to a user's question by strictly following their specific instructions. content should be in markdown format(compulsory) and strictly as writen
+        You are a gmp expert in pharma industry, your tasked with providing a complete and accurate answer to a user's question by strictly following their specific instructions. content should be in markdown format(compulsory) and strictly as writen
 
         ---
 
@@ -99,7 +99,7 @@ def brain(input_data: dict):
         ## Answer:
         """
 
-        output = instructionAnsweringAgent.kickoff(query)
+        output = llm.call(query)
 
         results[question_key] = output.raw
 
