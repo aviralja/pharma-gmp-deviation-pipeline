@@ -13,4 +13,5 @@ def summary_qa(input_data) -> str:
     Q/A: {input_data}
     """
     result = llm.call(query)
+    print("Summary generated.")
     return result

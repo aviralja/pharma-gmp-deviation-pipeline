@@ -100,8 +100,8 @@ def brain(input_data: dict):
         """
 
         output = llm.call(query)
-
-        results[question_key] = output.raw
+        print(f"Completed question: {question_key}")
+        results[question_key] = output
 
     return results
 
