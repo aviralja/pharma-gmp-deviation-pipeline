@@ -1,4 +1,4 @@
-from files.vectorstores import VectorStore
+from src.files.vectorstores import VectorStore
 class DeviationRepository:
     def __init__(self, vector_store: VectorStore):
         self.store = vector_store

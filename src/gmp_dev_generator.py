@@ -2,10 +2,11 @@
 ### * importing * ###
 import os
 import json
-from files.helperfunc import import_data, load_active_prompts, processing_content,process_description
-from files.agents import llm, summarizerAgent, instructionAnsweringAgent
-from files.brainstorminghelper import summary_qa
+from src.files.helperfunc import import_data, load_active_prompts, processing_content,process_description
+from src.files.agents import llm, summarizerAgent, instructionAnsweringAgent
+from src.files.brainstorminghelper import summary_qa
 from dotenv import load_dotenv
+
 #! brainstorming function
 load_dotenv()
 def deviation_generation(input_data: dict):

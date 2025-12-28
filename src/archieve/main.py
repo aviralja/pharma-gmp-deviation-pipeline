@@ -4,9 +4,9 @@ import logging
 import os
 from typing import List, Dict, Any
 
-from CLLM import CustomLLM
-from helperfunc import import_input_data
-from archieve.pipeline import DeviationRAGPipeline
+from src.files.CLLM import CustomLLM
+from src.files.helperfunc import import_input_data
+from src.archieve.pipeline import DeviationRAGPipeline
 
 
 def configure_logging(verbose: bool) -> None:

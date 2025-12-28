@@ -2,12 +2,12 @@
 ### * importing * ###
 import os
 import json
-from files.helperfunc import import_data, load_active_prompts, processing_content,process_description
-from files.agents import llm, summarizerAgent, instructionAnsweringAgent
-from files.brainstorminghelper import summary_qa
-from files.vectorstores import  MongoVectorStore
-from files.deviation_store import DeviationSimilarityService
-from files.redis_repo import DeviationRedisRepository, DeviationUpstashRedisRepository
+from src.files.helperfunc import import_data, load_active_prompts, processing_content,process_description
+from src.files.agents import llm, summarizerAgent, instructionAnsweringAgent
+from src.files.brainstorminghelper import summary_qa
+from src.files.vectorstores import  MongoVectorStore
+from src.files.deviation_store import DeviationSimilarityService
+from src.files.redis_repo import DeviationRedisRepository, DeviationUpstashRedisRepository
 from dotenv import load_dotenv
 #! brainstorming function
 load_dotenv()

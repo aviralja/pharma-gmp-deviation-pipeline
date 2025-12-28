@@ -1,8 +1,8 @@
 from typing import Any, Dict, List, Optional, Tuple
 import logging
 
-from CLLM import CustomLLM
-from chroma import (
+from src.files.CLLM import CustomLLM
+from src.files.chroma import (
     setup_chromadb,
     summary_q,
     processing_content,
