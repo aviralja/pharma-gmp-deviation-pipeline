@@ -13,7 +13,10 @@ from dotenv import load_dotenv
 load_dotenv()
 def brain(input_data: dict):
     summary=summary_qa(input_data['Problem Description and Immediate Action']) 
-    prompts=load_active_prompts("prompts/Prompts Output 2 1.xlsx") 
+    # Use absolute path relative to this file's location
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    prompts_path = os.path.join(current_dir, "prompts", "Prompts Output 2 1.xlsx")
+    prompts=load_active_prompts(prompts_path) 
     answer=process_description(summary,llm)
     answers=[answer]
     vector_store = MongoVectorStore()
@@ -109,6 +112,10 @@ def brain(input_data: dict):
 
 def save_ans_to_json(ans, filename="brain_output.json"):
     """Save the brain function answers to a JSON file."""
+    # Use absolute path relative to project root
+    if not os.path.isabs(filename):
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        filename = os.path.join(project_root, filename)
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(ans, f, indent=2, ensure_ascii=False)
     print(f"Answers saved to {filename}")
