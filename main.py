@@ -15,7 +15,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "https://report-companion.vercel.app"],
+    allow_origins=["http://localhost:8080", "https://report-companion.vercel.app",
+                  "https://happy-field-05ba9fc00.4.azurestaticapps.net"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
