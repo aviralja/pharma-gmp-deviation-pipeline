@@ -6,16 +6,18 @@ import requests
 class CustomLLM(BaseLLM):
     def __init__(
         self,
-        model: str,
-        base_url: str,
+        model: str = "custom",
+        base_url: str = "",
         api_key: Optional[str] = None,
         temperature: float = 0.7,
-        timeout: int = 60
+        timeout: int = 60,
+        max_tokens: int = 4000
     ):
         super().__init__(model=model, temperature=temperature)
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
         self.timeout = timeout
+        self.max_tokens = max_tokens
 
     def call(
         self,
@@ -26,32 +28,29 @@ class CustomLLM(BaseLLM):
         **kwargs
     ) -> Union[str, Any]:
 
-        # Normalize messages
+        # Convert messages to a single user input string
         if isinstance(messages, str):
-            chat_messages = [{"role": "user", "content": messages}]
+            user_input = messages
         else:
-            chat_messages = messages
+            # Combine all message contents into one string
+            user_input = "\n".join(
+                [msg.get("content", "") for msg in messages if msg.get("content")]
+            )
 
         payload = {
-            "model": self.model,
-            "messages": chat_messages,
-            "temperature": self.temperature,
+            "user_input": user_input,
+            "max_token": self.max_tokens
         }
-
-        headers = {"Content-Type": "application/json"}
-        if self.api_key:
-            headers["Authorization"] = f"Bearer {self.api_key}"
 
         try:
             response = requests.post(
-                f"{self.base_url}/chat/completions",
-                headers=headers,
+                self.base_url,
                 json=payload,
                 timeout=self.timeout
             )
             response.raise_for_status()
             data = response.json()
-            return data["choices"][0]["message"]["content"]
+            return data.get("response", "")
 
         except requests.exceptions.RequestException as e:
             return f"[LLM ERROR] {str(e)}"
