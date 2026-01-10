@@ -9,7 +9,7 @@ from typing import List, Dict
 import numpy as np
 
 
-from files.embedding import SentenceTransformerEmbedder
+from src.files.embedding import SentenceTransformerEmbedder
 import os
 from dotenv import load_dotenv
 load_dotenv()

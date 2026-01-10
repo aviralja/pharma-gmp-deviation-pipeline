@@ -2,15 +2,18 @@
 ### * importing * ###
 import os
 import json
-from files.helperfunc import import_data, load_active_prompts, processing_content,process_description
-from files.agents import llm, summarizerAgent, instructionAnsweringAgent
-from files.brainstorminghelper import summary_qa
+from src.files.helperfunc import import_data, load_active_prompts, processing_content,process_description
+from src.files.agents import llm, summarizerAgent, instructionAnsweringAgent
+from src.files.brainstorminghelper import summary_qa
 from dotenv import load_dotenv
+
 #! brainstorming function
 load_dotenv()
 def deviation_generation(input_data: dict):
-
-    prompts=load_active_prompts("prompts/Prompts Output 1 1.xlsx") 
+    # Use absolute path relative to this file's location
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    prompts_path = os.path.join(current_dir, "prompts", "Prompts Output 1 1.xlsx")
+    prompts=load_active_prompts(prompts_path) 
     print("!")
     summary={}
     for key, value in input_data.items():
@@ -55,11 +58,18 @@ def deviation_generation(input_data: dict):
 
 def save_ans_to_json(ans, filename="gmp.json"):
     """Save the brain function answers to a JSON file."""
+    # Use absolute path relative to project root
+    if not os.path.isabs(filename):
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        filename = os.path.join(project_root, filename)
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(ans, f, indent=2, ensure_ascii=False)
     print(f"Answers saved to {filename}")
 
 
 if __name__ == "__main__":
-    ans = deviation_generation(import_data("question-answer.json"))
+    # Use absolute path relative to project root
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_path = os.path.join(project_root, "question-answer.json")
+    ans = deviation_generation(import_data(data_path))
     save_ans_to_json(ans)

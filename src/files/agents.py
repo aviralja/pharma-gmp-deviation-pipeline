@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from crewai import Agent
-from files.CLLM import CustomLLM
+from src.files.CLLM import CustomLLM
 from crewai import LLM
 load_dotenv()
 
